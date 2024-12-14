@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(120deg, rgb(71, 29, 87), rgb(29, 66, 87));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container .main {
+            background: #5ce8ec;
+            height: auto;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container .main h1 {
+            text-transform: uppercase;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .container .main input {
+            padding: 8px 15px;
+            width: 65%;
+            font-size: 16px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 400;
+            outline: none;
+            margin: 10px;
+        }
+
+        .container .main button {
+            padding: 5px 15px;
+            font-size: 16px;
+
+        }
+
+        .container .main #answer {
+            width: 50%;
+            height: auto;
+            margin: 20px;
+            font-size: 14px;
+            background-color: rgb(180, 241, 243);
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Table Generator</h1>
+            <input type="number" placeholder="Enter any Number" id="input_number">
+            <button onclick="generateTable()">Generate</button>
+            <div id="answer"></div>
+        </div>
+    </div>
+
+    <script>
+        function generateTable() {
+            num = document.getElementById('input_number').value
+            htmltext = ''
+            for (i = 1; i <= 10; i++) {
+                htmltext = htmltext + `<h1>${num} X ${i} = ${num * i}</h1>`
+            }
+            document.getElementById('answer').innerHTML = htmltext
+        }
+    </script>
+</body>
+
+</html>
